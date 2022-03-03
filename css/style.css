@@ -1,0 +1,28 @@
+@charset "utf-8";
+/*h1 {*/
+/*    color: red;*/
+/*}*/
+.red {
+    color: red;
+    background-color: pink;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 5px;
+    border: double 3px red;
+}
+.green {
+    color:  green;
+    width: 60%;
+    margin:  0 auto;
+    text-align: center;
+    border-bottom: solid 1px green;
+    margin-top: 20px;
+}
+div {
+    width: 60%;
+    height: 1000px;
+    margin: 0 auto;
+    margin-top: 40px;
+    border: solid 1px green;
+}

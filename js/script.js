@@ -75,10 +75,10 @@ window.onload = function(){ //<head>の中に<script>が書かれていたら左
     // h1.style.backgroundColor = 'pink';
     h1.classList.add('red');
     
-    const button = document.getElementById('btn');
-    // ボタンが押された時の処理
-    button.addEventListener('click', () => { //ボタンに聞く耳を与える
-        // alert('押された');
+    const button = document.getElementById('btn'); // idの値によって生み出す btnというidをもった命を生み出す
+    // ボタンが押された時の処理　　　↓何かをもらったとしたら、こんなことをするでしょう
+    button.addEventListener('click', () => { //ボタンにイベントの聞く耳を与える
+        // alert('押された');　↑引数が２つ第1はイベントの種類、第2はイベントがされたときの処理
         // console.log(h1);
         const h2 = document.getElementsByTagName('h2')[0]; // 複数得なさい
         // console.log(h2);
@@ -89,24 +89,24 @@ window.onload = function(){ //<head>の中に<script>が書かれていたら左
         // console.log(div);
         h2.after(div);
         
-        // ユーザー一覧表示
-        users.forEach((user, index) => {
+        // ユーザー一覧表示　　　　　↓こういうものをもらったとしたら、こう書けるでしょう(アロー式)
+        users.forEach((user, index) => { // 一人抜き出したものを仮にuserと名づける、index=配列番号が勝手に飛んでくる
             // <ul></ul>を作ったと一緒
-            const ul = document.createElement('ul');
+            const ul = document.createElement('ul');　//.createElement()はHTML要素を新しく作成
             // <li></li>を作ったと一緒
-            const li_num = document.createElement('li');
-            // <li>#1</li>
+            const li_num = document.createElement('li');　// numは適当、なんでもいい
+            // <li>#1</li> textContent→挟まれた文字　index→０からふられる　#1という文字をつっこんだ
             li_num.textContent = `#${index + 1}` ;
             const li_name = document.createElement('li');
             li_name.textContent = user.name;
             const li_age = document.createElement('li');
             li_age.textContent = `${user.age}歳`;
             const li_drink = document.createElement('li');
-            li_drink.textContent = user.drink();
-            ul.appendChild(li_num);
-            ul.appendChild(li_name);
-            ul.appendChild(li_age);
-            ul.appendChild(li_drink);
+            li_drink.textContent = user.drink(); // タグに挟まれた文字を、今注目しているユーザーの持っている
+            ul.appendChild(li_num);              // drink()メソッドを呼び出した結果をつっこめ
+            ul.appendChild(li_name); // 上記で作ったul()には何も挟まれていないので、できたli()たちをつっこんでいかないといけない
+            ul.appendChild(li_age);　// appendChild()→子供として追加しろという意味
+            ul.appendChild(li_drink); // 今回はul()に対して子供として追加しろ
             div.appendChild(ul);
             // console.log(ul);
         });
